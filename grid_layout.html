@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout</title>
+    <style>
+        .header, .nav, .main, .aside, .advertise, .footer {
+            background-color: bisque;
+            border: 2px solid tomato;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .header {
+            grid-area: header;
+        }
+        .nav {
+            grid-area: nav;
+        }
+        .main {
+            grid-area: main;
+        }
+        .aside {
+            grid-area: aside;
+        }
+        .advertise {
+            grid-area: advertise;
+        }
+        .footer {
+            grid-area: footer;
+        }
+        .container {
+            display: grid;
+            gap: 20px;
+            grid-template-areas:
+                "header header header header"
+                "nav main main sidebar"
+                "nav main main advertise"
+                "footer footer footer footer";
+        }
+
+        @media screen and (max-width:576px) {
+            .container {
+                grid-template-areas:
+                    "header"
+                    "nav"
+                    "main"
+                    "aside"
+                    "advertise"
+                    "footer";
+            }
+        }
+
+        @media screen and (min-width:576px) and (max-width:992px ) {
+            .container {
+                grid-template-areas:
+                    "header header header"
+                    "nav nav nav"
+                    "sidebar main main"
+                    "advertise footer footer";
+            }
+        }
+
+    </style>
+</head>
+<body class="container">
+    <header class="header">
+        <h1>This is header</h1>
+    </header>
+    <nav class="nav">
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Services</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+    <main class="main">
+        <article>
+            <h2>Article 1</h2>
+            <p>Lorem ipsum dolor sit amet.</p>
+        </article>
+        <article>
+            <h2>Article 2</h2>
+            <p>Lorem ipsum dolor sit amet</p>
+        </article>
+    </main>
+    <div class="aside">
+        <h3>This is aside</h3>
+    </div>
+    <div class="advertise">
+        <h3>Advertisement</h3>
+    </div>
+    
+    <footer class="footer">
+        <h3>This is footer</h3>
+    </footer>
+
+</body>
+</html>
